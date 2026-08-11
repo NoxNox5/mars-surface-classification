@@ -1,18 +1,21 @@
-# Mars Surface Image Classification
+# Mars Surface Image Clustering with CNN Features
 
 **Subhankar Tripathi** | EEN1083/EEN1085 — Dublin City University, 2024
 
-Multi-class image classification and unsupervised clustering on the [NASA Mars Surface Image Dataset](https://www.kaggle.com/datasets/brsdincer/mars-surface-image-classif-curiosity-v2) — 6,691 labelled images from the Curiosity rover across 25 surface categories.
+Unsupervised analysis of the [NASA Mars Surface Image Dataset](https://www.kaggle.com/datasets/brsdincer/mars-surface-image-classif-curiosity-v2): 6,691 labelled images from the Curiosity rover across 25 surface categories. The labels describe the source dataset; the shipped notebook does not train a supervised multi-class classifier.
 
 ## Approach
 
-Two methods compared:
-- **EfficientNetB0 feature extraction + K-Means clustering** (unsupervised)
-- PCA dimensionality reduction (50 components) → cluster visualisation
+The shipped notebook implements:
+- **Frozen EfficientNetB0 CNN feature extraction** — generates image embeddings without training a new classifier
+- **PCA dimensionality reduction** — reduces the embeddings to 50 components
+- **Unsupervised K-Means clustering** — groups the PCA-reduced features without using category labels as training targets
 
 ## Results
 
-K-Means on PCA-reduced CNN features produces meaningful groupings for distinct surface types (drill, wheels, horizon). Categories with visual similarity (e.g. ground vs observation tray) predictably overlap. Silhouette score ~0.12–0.15.
+K-Means on PCA-reduced CNN features produces groupings for distinct surface types such as drill, wheels, and horizon. Categories with visual similarity (for example, ground and observation tray) overlap. The observed silhouette-score range is 0.12–0.15, indicating limited cluster separation rather than classifier accuracy.
+
+See the [project case study](https://www.subhankartripathi.com/projects/mars-surface-classification/) for additional context.
 
 ## Setup
 
@@ -31,4 +34,4 @@ Then run `notebooks/mars_surface_classification.ipynb`
 
 ---
 
-*Full portfolio: [portfolio.subhankar-tripathi.workers.dev](https://portfolio.subhankar-tripathi.workers.dev/)*
+*Full portfolio: [subhankartripathi.com](https://www.subhankartripathi.com/)*
